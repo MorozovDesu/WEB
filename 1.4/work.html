@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="paragraph1 bordered">
+    Однажды весною, в час небывало <span class="adjective">жаркого </span> заката, в <span class="name" style="background: red;">Москве,</span>  
+    на Патриарших прудах, появились два гражданина. 
+    Первый из них, одетый в <span class="adjective">летнюю серенькую </span>  пару, 
+    был <span class="adjective">маленького</span> роста, упитан, лыс, свою <span class="adjective">приличную</span> шляпу 
+    пирожком нес в руке, а на хорошо выбритом лице его помещались 
+    <span class="adjective">сверхъестественных</span> размеров очки в <span class="adjective">черной роговой</span> оправе. 
+    Второй – <span class="adjective">плечистый, рыжеватый, вихрастый молодой</span> человек в
+        <span class="adjective">заломленной на затылок клетчатой</span> кепке – был в ковбойке, 
+    <span class="adjective"> жеваных белых</span> брюках и в <span class="adjective">черных</span> тапочках.
+</div>
+<br>
+<div class="paragraph2 bordered2">
+    Первый был не кто иной , как <span class="name" style="background: linear-gradient(80deg, yellow , red); ">Михаил Александрович Берлиоз</span>,
+    председательно правления одной из <span class="adjective">курпнейших московских литературных</span> ассоциаций, сокращенно именуемой МАССОЛИТ, и редактор <span class="adjective">толстого художественного</span>
+    журнала, а <span class="adjective"> молодой спутник его поэт </span>
+    <span class="name" style=" background: wheat;"> Иван Николаевич Понырев </span>, пишущий под 
+    псевдонимом <span style="display: inline-block; padding: 5px; background: yellow;">Бездомный</span>
+</div>
+<br>
+<div class="paragraph3 bordered3">
+    Попав в тень чуть <span class="adjective" style="background: yellow; border: 1px solid black;">зеленеющих</span> лип, писатели
+    первым долгом бросились к <span class="adjective">пестро раскрашенной </span>
+    будочке с надписью "Пиво и воды"
+
+</div>
+
+<style>
+    .name{
+        display: inline-block;
+        padding: 8px;
+    }
+    .paragraph1{
+        background:#cceb92 ;
+        text-align: center;
+        font-weight: bold;
+
+    }
+    .paragraph2{
+        text-align: right;
+        width: 500px;
+        background:linear-gradient(90deg, #9bd8f5, #e97f84 );
+
+    }
+    .paragraph3{ 
+        text-align: left;
+        width: 50%;
+        background: linear-gradient(50deg, white, red);
+    }
+    .paragraph1.bordered1{
+        padding: 8px 16px ;
+        border: 2px solid rgb(230, 139, 21)"
+    }
+    .paragraph2.bordered2{
+        padding: 8px 16px ;
+        border: 4px solid rgb(17, 0, 255);
+
+    }
+    .paragraph3.bordered3{
+        padding: 8px 16px ;
+        border: 10px solid green;
+    }
+    .paragraph1 .adjective {
+    background: white;
+    }
+    .paragraph2 .adjective {
+    background: rgb(255, 174, 0);
+    }
+    .paragraph3 .adjective {
+    background: rgb(2, 250, 184);
+    }
+    
+    .adjective {
+        background: yellowgreen;
+        transition: all 0.3s;
+    }
+    .padding{
+        padding: 8px 16px ;
+
+    }
+    .bordered {
+   /* в этот новый стиль вынес все связанной с блоком и рамкой */
+    border: 2px dashed black;
+    display: inline-block; 
+    margin: 2px; 
+    padding: 0 4px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px grey;
+    }
+   .paragraph1.bordered {
+    margin: 16px 0;
+    border-width: 6px;
+    }
+    .adjective:hover{
+    background: rgb(229, 7, 232);
+    cursor: pointer;
+    border-width: 4px; /* меняю ширину границы, да можно только ширину указать */
+    padding: 6px; /* меняю отступы от границы */
+    box-shadow: 0 0 30px white; /* делаю тень белой и побольше, получается иллюзия свечения */
+    }
+
+</style>
+</body>
+</html>

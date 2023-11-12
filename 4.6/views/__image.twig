@@ -1,0 +1,11 @@
+{% extends "__object.twig" %}
+
+{% block container %}
+    <div>
+        {{title}} -- чудо природы
+    </div>
+
+    {% block objectContent %}
+        <img src="{{ image }}" style="width: 300px;"/>
+    {% endblock %}
+{% endblock %}

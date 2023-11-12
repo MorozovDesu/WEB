@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Название</th>
+                            <th>Рейтинг</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-title="Унесённые призраками" data-rating="8.4" data-year="2001"
+                            data-director="Хаяо Миядзаки"
+                            data-image="https://avatars.mds.yandex.net/get-kinopoisk-image/1629390/64becb5d-e7b9-4a56-8c71-5008294a854a/300x450"
+                            onclick="onRowClick(this)">
+                            <td>Унесённые призраками</td>
+                            <td>8.4</td>
+                        </tr>
+                        <tr data-title="Малхолланд Драйв" data-rating="7.6" data-year="2002" data-director="Дэвид Линч"
+                            data-image="https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/477bd555-16ee-47aa-be90-6a252c189414/300x450"
+                            onclick="onRowClick(this)">
+                            <td>Малхолланд Драйв</td>
+                            <td>7.6</td>
+                        </tr>
+                        <tr data-title="Мертвец" data-rating="7.8" data-year="1995" data-director="Джим Джармуш"
+                            data-image="https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/707e78dc-43a0-4309-88f0-dee4ce7a4e57/300x450"
+                            onclick="onRowClick(this)">
+                            <td>Мертвец</td>
+                            <td>7.8</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <div class="shadow p-2 text-center" style="width: fit-content; margin: 0 auto; padding: 2px;">
+                    <span id="title"><strong>Название<strong></span>
+                    <img id="image" src="" alt="">
+                    <span id="director"><strong><strong></span><br>
+                    <span id="year"><strong><strong></span><br>
+                    <span id="rating"><strong><strong></span> <br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .table tr td:hover {
+            /* :hover -- это псевдо класс, добавляется когда наводишь на элемент мышку */
+            cursor: pointer;
+            /*курсор -- указатель*/
+        }
+    </style>
+
+    <script>
+        function onRowClick(row) {
+            let title = document.getElementById("title")
+            title.style.fontWeight = "bold";
+            title.innerText = row.dataset.title;
+
+            let director = document.getElementById("director");
+            director.innerText = "Режисёр: " + row.dataset.director;
+
+            let year = document.getElementById("year");
+            year.innerText = "Год выпуска: " + row.dataset.year;
+
+            let rating = document.getElementById("rating");
+            rating.innerText = "Рейтинг: " + row.dataset.rating;
+
+
+            var imageElement = document.getElementById('image');
+            imageElement.setAttribute("src", row.dataset.image)
+
+            // находим все теги tr, которые внутри tbody, который внутри тега с классом table
+            document.querySelectorAll(".table tbody tr").forEach(el => {
+                el.classList.remove("table-info"); // удаляем у них класс table-info
+            })
+            row.classList.add("table-info");
+        }
+
+        // let previousRow = null; // завел переменную под строку
+        // function onRowClick(row) {
+        //     let title = document.getElementById("title")
+        //     title.innerText = row.dataset.title;
+
+        //     if (previousRow) { // если предыдущая строка не пустая
+        //         previousRow.classList.remove("table-info") // то удаляем у нее класс
+        //     }
+        //     row.classList.add("table-info");
+        //     previousRow = row; // меняем предыдущую строку на текущую
+        // }
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

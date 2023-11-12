@@ -1,0 +1,591 @@
+@font-face {
+    font-family: 'YourFontName';
+    src: url('/fonts/Archangelsk.ttf') format('.ttf'),
+        /* Другие свойства шрифта, например, font-weight и font-style, могут быть указаны здесь */
+}
+
+.navbar {
+    flex-shrink: 0;
+    /* верхнее_значение правое_значение нижнее_значение левое_значение; */
+    /* padding: 20px 320px 906px 320px; */
+}
+
+.logo {
+    flex-grow: 0;
+    flex-basis: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 296px;
+    height: 74px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    /* background-color: #f1f511; */
+
+}
+
+.social {
+    flex-grow: 1;
+    flex-basis: auto;
+    display: flex;
+    /* Используйте flexbox для расположения социальных иконок */
+    gap: 10px;
+    /* Расстояние между иконками */
+}
+
+.social img {
+    width: 30px;
+    height: 30px;
+    gap: 10px;
+    flex-shrink: 0
+}
+
+.hero {
+    background: url(/img/hero.jpg);
+    background-repeat: no-repeat;
+    width: 1920px;
+    height: 1000px;
+    flex-shrink: 0;
+}
+
+#changeable-background {
+    background-image: url(/img/hero.jpg);
+    /* Путь к начальной картинке */
+    background-size: cover;
+    transition: background 0.8s;
+    /* Добавим плавное изменение фона */
+}
+
+.rectangle {
+    display: flex;
+    align-items: flex-end;
+    flex-grow: 2;
+    width: 600px;
+    height: 910px;
+    fill: none;
+    flex-shrink: 0;
+    position: relative;
+}
+
+
+.text_rectangle {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #000;
+    font-family: fantasy;
+    font-size: 62px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    bottom: 120px;
+    /* Поднимите текст относительно нижней части .rectangle */
+    left: 50%;
+    /* Положение по центру .rectangle */
+    transform: translateX(-50%);
+    /* Центрирование по горизонтали */
+}
+
+.learn-more-button {
+    position: absolute;
+    bottom: 30px;
+    left: 40%;
+    transform: translateX(-50%);
+    color: #fff;
+    /* Цвет текста кнопки */
+    padding: 10px 20px;
+    /* Отступы вокруг текста кнопки */
+    border: 1px solid #000;
+    background: #000;
+    cursor: pointer;
+    font-size: 18px;
+    /* Скругление углов кнопки */
+    display: inline-flex;
+    padding: 19px 50px;
+    align-items: center;
+    gap: 10px;
+}
+
+.learn-more-button-text {
+    color: #F8F200;
+    text-align: center;
+    font-family: Archangelsk;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    /* 166.667% */
+}
+
+/* Новый блок-------------------------------------------- */
+.night {
+    background-color: #fff;
+    width: 1920px;
+    height: 777px;
+    pointer-events: none;
+}
+
+.night-text1 {
+    padding-top: 20px;
+    padding-left: 320px;
+    padding-bottom: 25px;
+    color: #000;
+    font-family: Archangelsk;
+    font-size: 62px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.night-text2 {
+    width: 952px;
+    height: 125px;
+    white-space: nowrap;
+    /* Предотвратить перенос текста на новую строку */
+    padding-left: 320px;
+    color: #777;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+    width: 952px;
+    height: 125px;
+}
+
+.night-text2-paragraph {
+    color: #52BEDC;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 34px;
+
+}
+
+.image-night {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Создаем две колонки */
+    grid-gap: 20px;
+    /* Отступ между элементами */
+}
+
+.image-night-2-3 {
+    padding-left: 320px;
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 32px;
+    /* Расстояние между изображениями */
+}
+
+.image-night2 {
+    padding-top: 32px;
+}
+
+.image-night-1 {
+    padding-top: 70px;
+    ;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+a {
+    text-decoration: none;
+    /* Убираем подчеркивание ссылки */
+}
+
+/* Новый блок-------------------------------------------- */
+.promotion {
+    width: 1920px;
+    height: 884px;
+    background: #000;
+}
+
+.action {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.actVector {
+    position: absolute;
+    /* Установим позицию картинок как абсолютную */
+    top: 0;
+    /* Положение верхней картинки */
+    left: 320px;
+    /* Положение левой картинки */
+}
+
+.actVector2 {
+    align-items: center;
+    position: absolute;
+    /* Установим позицию картинок как абсолютную */
+    top: 35px;
+    /* Положение верхней картинки */
+    left: 350px;
+    /* Положение левой картинки */
+}
+
+.action {
+    padding-top: 65px;
+    color: #FFF;
+    font-family: Archangelsk;
+    font-size: 62px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.promotion .night-text2 {
+    padding-top: 39px;
+}
+
+.form {
+    padding-top: 98px;
+    padding-left: 320px;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.form-group {
+    font-family: roboto;
+
+}
+
+.form-group .label {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+#name {
+    background: #000;
+    border-color: #000;
+}
+
+#exampleFormControlInput1 {
+    background: #000;
+    border-color: #000;
+}
+
+#name:hover {
+    border-color: #F8F200;
+}
+
+#exampleFormControlInput1:hover {
+    border-color: #F8F200;
+}
+
+.screenshot {
+    margin-bottom: 15px;
+    text-align: center;
+    border: 2px solid #F8F200;
+    padding-top: 39px;
+    padding-bottom: 60px;
+    padding-right: 137px;
+    padding-left: 137px;
+}
+
+.screenshot-format {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.screenshot:hover {
+    background: #f8f4004f;
+}
+
+#submit {
+    display: inline-flex;
+    height: 59px;
+    padding: 15px 50px;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    background-color: #F8F200;
+}
+
+.xboxLayer {
+    position: relative;
+    padding-left: 500px;
+}
+
+.xbox {
+    position: absolute;
+    z-index: 1;
+    padding-top: 25px;
+    padding-left: 164px;
+}
+
+.Layer1 {
+    position: absolute;
+}
+
+.playstationLayer {
+    position: relative;
+    padding-left: 950px;
+}
+
+.playstation {
+    position: absolute;
+    z-index: 1;
+    padding-top: 25px;
+    padding-left: 164px;
+}
+
+.Layer2 {
+    position: absolute;
+}
+
+/* Новый блок--------------------------------------------*/
+.pc-bg {
+    width: 1920px;
+    height: 746px;
+    background: #F8F200;
+}
+
+.pc {
+    display: flex;
+}
+
+.pc-img {
+    width: 924px;
+    height: 500px;
+    padding-top: 70px;
+    padding-left: 320px;
+}
+
+.pc-text {
+    flex-direction: column;
+    /* Расположить текст вертикально */
+    padding-top: 70px;
+    padding-left: 32px;
+    color: #000;
+    font-family: Archangelsk;
+}
+
+.pc-text-1 {
+    color: #000;
+    font-size: 62px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.pc-text-2 {
+    margin-top: 25px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+}
+
+.advantages img {
+    margin-top: 23px;
+    width: 32px;
+    height: 32px;
+}
+
+#btn-more {
+    margin-top: 20px;
+    padding: 15px 50px 15px 50px;
+    background: #000;
+}
+
+.more {
+    color: #F8F200;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.logos {
+    padding-left: 324px;
+    display: flex;
+    justify-content: left;
+    /* Выравнивание логотипов по центру */
+    margin-top: 20px;
+    /* Отступ сверху */
+    padding-bottom: 50px;
+}
+
+.advantages {
+    justify-content: flex-start;
+    text-align: start;
+}
+
+.advantage-item img {
+    vertical-align: bottom;
+    /* Поднимет изображение к верхней части блока */
+    width: 32px;
+    height: 32px;
+}
+
+.logos img {
+    margin: 0 20px;
+    /* Отступ между логотипами */
+}
+
+/* Новый блок------------------------------- */
+.platform-section {
+    display: flex;
+    background: #000;
+    width: 1920px;
+    height: 717px;
+}
+
+.platform-text {
+    flex-direction: column;
+
+    padding-top: 70px;
+    padding-left: 32px;
+    color: rgb(255, 255, 255);
+    font-family: Archangelsk;
+}
+
+.platform-text-1 {
+    color: #FFF;
+    font-family: Archangelsk;
+    font-size: 62px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.platform-text1 {
+    margin-top: 25px;
+    color: rgb(255, 255, 255);
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+}
+
+.platform-text-2 {
+    margin-top: 25px;
+    color: rgb(255, 255, 255);
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+}
+
+.platform-abz-1 {
+    color: #52BEDC;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.platform-abz-2 {
+    margin-top: 100px;
+    padding-top: 75px;
+    color: #52BEDC;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.platform-container {
+    display: flex;
+    justify-content: space-between;
+    /* Расположить два столбца влево и вправо */
+}
+
+.platform-column {
+    padding-top: 25px;
+}
+
+.stadia img {
+    padding-bottom: 47px;
+}
+
+.ps4 img {
+    padding-bottom: 47px;
+}
+
+/* Новый блок------------------------------ */
+.footer {
+    width: 1920px;
+    height: 100px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    /* Устанавливаем контейнеру режим flex */
+    justify-content: space-between;
+    /* Располагаем колонки с промежутком между ними */
+}
+
+.footer_text {
+    color: #000;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    flex-basis: 50%;
+}
+
+
+#CD_logo_2 {
+    padding-left: 320px;
+}
+
+#RED {
+    padding-left: 32px;
+}
+
+.lic {
+    padding-left: 350px;
+    padding-top: 40px;
+}
+
+.politic {
+    padding-left: 32px;
+    padding-top: 40px;
+}
+
+.footer_logo {
+    flex-basis: 50%;
+}
+
+.footer_end {
+    width: 1920px;
+    height: 40px;
+    background-color: #000;
+    padding-top: 13px;
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
