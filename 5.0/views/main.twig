@@ -1,0 +1,13 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+    {# Главная страница о цветах #}
+    <pre>
+        Название: {{ flower_objects[0].title }}
+        {% for object in flower_objects %}
+            Название: {{ object.title }} <br>  
+        {% endfor %}
+
+        {{ dump(flower_objects) }} <!-- добавил вывод данных -->       
+    </pre>
+{% endblock %}
