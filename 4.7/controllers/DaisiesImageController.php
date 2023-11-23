@@ -1,14 +1,14 @@
 <?php
-require_once "RoseController.php"; // обязательно импортим TwigBaseController
+require_once "DaisiesController.php"; // обязательно импортим TwigBaseController
 
-class RoseImageController extends RoseController {
+class DaisiesImageController extends DaisiesController {
     public $template = "__image.twig"; // шаблон страницы
     
     // переопределяем функцию контекста
     public function getContext() : array
     {
         $context = parent::getContext(); // вызываем родительский метод
-        $context['image'] = "/images/roses.jpg";
+        $context['image'] = "/images/daisies.jpg";
 
         return $context;
     }

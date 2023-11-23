@@ -1,9 +1,15 @@
 <?php
 require_once '../vendor/autoload.php';
 require_once "../controllers/MainController.php";
+
 require_once "../controllers/RoseController.php";
 require_once "../controllers/RoseImageController.php";
 require_once "../controllers/RoseInfoController.php";
+
+require_once "../controllers/DaisiesController.php";
+require_once "../controllers/DaisiesImageController.php";
+require_once "../controllers/DaisiesInfoController.php";
+
 require_once "../controllers/Controller404.php";
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
@@ -39,21 +45,15 @@ if ($url == "/") {
     $controller = new RoseInfoController($twig);
 } elseif (preg_match("#^/rose#", $url)) {
     $controller = new RoseController($twig);
+} elseif (preg_match("#^/daisies/image#", $url)) {
+    $controller = new DaisiesImageController($twig);
+} elseif (preg_match("#^/daisies/image#", $url)) {
+    $controller = new DaisiesImageController($twig);
 } elseif (preg_match("#^/daisies#", $url)) {
-    $title = "Ромашки";
-    $template = "__object.twig";
-    $context['imageView'] = "/daisies/image";
-    $context['infoView'] = "/daisies/info";
-
-    if (preg_match("#^/daisies/image#", $url)) {
-		$template = "__image.twig";
-		$context['image'] = "/images/daisies.jpg";
-	} elseif (preg_match("#^/daisies/info#", $url)) {
-		$template = "daisies_info.twig";
-	}
+    $controller = new DaisiesInfoController($twig);
+} elseif (preg_match("#^/daisies/info#", $url)) { 
+    $controller = new DaisiesController($twig);       
 }
-
-$context['menu'] = $menu;
 
 // проверяем если controller не пустой, то рендерим страницу
 if ($controller) {
