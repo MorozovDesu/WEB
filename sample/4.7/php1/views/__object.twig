@@ -1,0 +1,16 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+    <div>
+        {{ title }}
+    </div>
+    <ul>
+        <a href="{{ imageView }}" style="background-color: bisque;">Картинка</a>
+        <a href="{{ infoView }}" style="background-color: bisque;">Описание</a>
+    </ul>
+
+    {% block container %}
+        
+    {% endblock %}
+    
+{% endblock %}
