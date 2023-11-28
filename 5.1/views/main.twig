@@ -1,13 +1,80 @@
 {% extends "__layout.twig" %}
 
 {% block content %}
-    {# Главная страница о цветах #}
+<div class="d-flex justify-content-between">
+            <div class="list-group-item">
+                <img style="height: 300px; width: 250px;" src="{{flower_objects[0].image}}" alt="{{flower_objects[0].title}}" />
+                <button onclick="">{{flower_objects[0].title}}</button>
+                <a href="/rose/image">Картинка</a>
+                <a href="/rose/info">Описание</a>
+            </div>
+            <div class="list-group-item">
+                <img style="height: 300px; width: 250px;" src="{{flower_objects[1].image}}" alt="{{flower_objects[1].title}}" />
+                <button onclick="">{{flower_objects[1].title}}</button>
+                <a href="{{flower_objects[1].link1}}">Картинка</a>
+                <a href="{{flower_objects[1].link2}}">Описание</a>
+            </div>
+            <div class="list-group-item">
+                <img style="height: 300px; width: 250px;" src="{{flower_objects[2].image}}" alt="{{flower_objects[2].title}}" />
+                <button onclick="">{{flower_objects[2].title}}</button>
+                <a href="{{flower_objects[2].link1}}">Картинка</a>
+                <a href="{{flower_objects[2].link2}}">Описание</a>
+            </div>
+            <div class="list-group-item">
+                <img style="height: 300px; width: 250px;" src="{{flower_objects[3].image}}" alt="{{flower_objects[3].title}}" />
+                <button onclick="">{{flower_objects[3].title}}</button>
+                <a href="{{flower_objects[3].link1}}">Картинка</a>
+                <a href="{{flower_objects[3].link2}}">Описание</a>
+            </div>
+            <div class="list-group-item">
+                <img style="height: 300px; width: 250px;" src="{{flower_objects[4].image}}" alt="{{flower_objects[4].title}}" />
+                <button onclick="">{{flower_objects[4].title}}</button>
+                <a href="{{flower_objects[4].link1}}">Картинка</a>
+                <a href="{{flower_objects[4].link2}}">Описание</a>
+            </div>
+        </div>
+
     <pre>
-        Название: {{ flower_objects[0].title }}
+        {# Название: {{ flower_objects[0].title }}
         {% for object in flower_objects %}
             Название: {{ object.title }} <br>  
-        {% endfor %}
+        {% endfor %} #}
 
-        {{ dump(flower_objects) }} <!-- добавил вывод данных -->       
+        {# Информация: {{ flower_objects[0].info }}
+        {% for object in flower_objects %}
+            Название: {{ object.info }} <br>  
+        {% endfor %} #}
+        {# {{ dump(flower_objects) }} <!-- добавил вывод данных -->        #}
+
     </pre>
+<style>
+img {
+    height: 300px;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+}
+.list-group-item {
+    position: relative;
+    padding-right: 25px;
+}
+.list-group-item button {
+    margin-top: 5px;
+    width: 100%;
+    box-sizing: border-box; /* чтобы учесть отступы и границы */
+    border-radius: 12px;
+    background-color: white;
+    color: black;
+    border: 2px solid #04AA6D;
+    
+}
+.list-group-item a {
+    margin: 0 25px; /* добавляем отступы между ссылками */
+}
+
+
+</style>
 {% endblock %}
+
+
