@@ -2,11 +2,11 @@
 
 {% block content %}
     <div>
-        {{ title }}
+        {{description}}
     </div>
     <ul>
-        <a href="{{ imageView }}" style="background-color: #FFF6C2;">Картинка</a>
-        <a href="{{ infoView }}" style="background-color: #FFF6C2;">Описание</a>
+        <a href="/flower-object/{{id}}/image" style="background-color: #FFF6C2;">Картинка</a>
+        <a href="/flower-object/{{id}}/info" style="background-color: #FFF6C2;">Описание</a>
     </ul>
 
     {% block container %}

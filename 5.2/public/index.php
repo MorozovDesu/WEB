@@ -3,14 +3,10 @@ require_once '../vendor/autoload.php';
 require_once '../framework/autoload.php';
 require_once "../controllers/MainController.php";
 require_once "../controllers/ObjectController.php";
-
-require_once "../controllers/RoseController.php";
-require_once "../controllers/RoseImageController.php";
-require_once "../controllers/RoseInfoController.php";
-
-require_once "../controllers/DaisiesController.php";
-require_once "../controllers/DaisiesImageController.php";
-require_once "../controllers/DaisiesInfoController.php";
+require_once "../controllers/ImageController.php";
+require_once "../controllers/InfoController.php";
+// require_once "../controllers/RoseController.php";
+// require_once "../controllers/DaisiesController.php";
 
 require_once "../controllers/Controller404.php";
 
@@ -26,12 +22,15 @@ $pdo = new PDO("mysql:host=localhost;dbname=outer_flower;charset=utf8", "root", 
 
 $router = new Router($twig, $pdo);
 $router->add("/", MainController::class);
-$router->add("/rose", RoseController::class);
-$router->add("/rose/image", RoseImageController::class);
-$router->add("/rose/info", RoseInfoController::class);
-$router->add("/daisies", DaisiesController::class);
-$router->add("/daisies/image", DaisiesImageController::class);
-$router->add("/daisies/info", DaisiesInfoController::class);
+$router->add("/flower-object/(?P<id>\d+)/image", ImageController::class);
+$router->add("/flower-object/(?P<id>\d+)/info", InfoController::class);
+
+// $router->add("/rose", RoseController::class);
+$router->add("/rose/image", ImageController::class);
+$router->add("/rose/info", InfoController::class);
+// $router->add("/daisies", DaisiesController::class);
+$router->add("/daisies/image", ImageController::class);
+$router->add("/daisies/info", InfoController::class);
 
 $router->add("/flower-object/(?P<id>\d+)", ObjectController::class);
 

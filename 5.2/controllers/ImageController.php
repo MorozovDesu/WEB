@@ -1,9 +1,8 @@
 <?php
 
-class MainController extends TwigBaseController {
-    public $template = "main.twig";
-    public $title = "Главная";
-
+class ImageController extends TwigBaseController {
+    public $template = "__image.twig";
+    
     public function getContext(): array
     {
         $context = parent::getContext();
@@ -15,6 +14,7 @@ class MainController extends TwigBaseController {
         // стягиваем данные через fetchAll() и сохраняем результат в контекст
         $context['flower_objects'] = $query->fetchAll();
         
+        $context['id'] = $this->params['id'];
 
         return $context;
     }

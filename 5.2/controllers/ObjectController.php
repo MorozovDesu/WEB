@@ -7,9 +7,9 @@ class ObjectController extends TwigBaseController {
     {
         $context = parent::getContext();
         
-        echo "<pre>";
-        print_r($this->params);
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r($this->params);
+        // echo "</pre>";
 
 
         // готовим запрос к БД, допустим вытащим запись по id=3
@@ -24,6 +24,7 @@ class ObjectController extends TwigBaseController {
         
         // передаем описание из БД в контекст
         $context['description'] = $data['description'];
+        $context['id'] = $this->params['id'];
 
         return $context;
     }
