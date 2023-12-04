@@ -1,0 +1,45 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+    <div>
+        {{description}}
+    </div>
+    <ul>
+        {# <a href="/flower-object/{{id}}/image" style="background-color: #FFF6C2;">Картинка</a>
+        <a href="/flower-object/{{id}}/info" style="background-color: #FFF6C2;">Описание</a> #}
+        <a href="/flower-object/{{ id }}?show=image" style="background-color: #FFF6C2;">Картинка</a>
+        <a href="/flower-object/{{ id }}?show=info" style="background-color: #FFF6C2;">Описание</a>
+    </ul>
+
+    {# {% if app.request.query.get('show') == 'image' %}
+        {% block objectContent %}
+            {% for object in flower_objects %}
+                <img src="{{ object.image }}" style="width: 300px;"/>
+            {% endfor %}
+        {% endblock %}
+    {% elseif app.request.query.get('show') == 'info' %}
+        {% block container %}
+            {% for object in flower_objects %}
+                {{ object.info }}
+            {% endfor %}
+        {% endblock %}
+    {% endif %} #}
+{# 
+    {% for object in flower_objects %}
+        {{ object.info }}
+    {% endfor %} #}
+
+    {# {% for object in flower_objects %}
+        <img src="{{ object.image }}" style="width: 300px;"/>
+    {% endfor %}
+    #}
+    {% block container %}
+        {{flower_objects[id-1].info }}
+    {% endblock %}
+
+    {% block objectContent %}
+        <img src="{{ flower_objects[id-1].image }}" style="width: 300px;"/>
+
+    {% endblock %}
+        
+{% endblock %}
