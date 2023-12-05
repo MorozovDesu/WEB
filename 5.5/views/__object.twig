@@ -1,0 +1,16 @@
+{% extends "__layout.twig" %}
+
+{% block content %}
+    <div>
+        {{description}}
+    </div>
+    <ul>
+        <a href="/flower-object/{{id}}/image" style="background-color: #FFF6C2;">Картинка</a>
+        <a href="/flower-object/{{id}}/info" style="background-color: #FFF6C2;">Описание</a>
+    </ul>
+
+    {% block container %}
+        
+    {% endblock %}
+    
+{% endblock %}
