@@ -11,12 +11,16 @@
 </head>
 
 <body>
-    
+
     <div class="container">
         <div>
             <a href="/" class="me-2">Главная</a>
-            <a href="/?type=кустовые" class="me-2">Кустовые</a>
-            <a href="/?type=одиночные" class="me-2">Одиночные</a>
+            @foreach ($types as $type)
+                <a href="/?type={{$type->title}}" class="me-2">{{Str::ucfirst($type->title)}}</a>
+            @endforeach
+            <a href="flower-objects/create" class="ms-4">Создать</a>
+            {{-- <a href="/?type=кустовые" class="me-2">Кустовые</a> --}}
+            {{-- <a href="/?type=одиночные" class="me-2">Одиночные</a> --}}
         </div>
         @yield('content')
 
