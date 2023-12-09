@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\FlowerObject;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
-    $objects = DB::select("SELECT * FROM flower_objects");
+Route::get('/', function (Request $request) {
+    // $objects = FlowerObject::all();
+    $objects = FlowerObject::query();
+    if($request->query("type")){
+        $objects = $objects->where("type", $request->query("type"));
+    }
+    $objects = $objects->get();
 
     // dd($objects);
 
@@ -27,9 +33,12 @@ Route::get('/', function () {
     ]);
 });
 Route::get('/flower-objects/{id}', function (Request $request,$id) {
-    $objects = DB::selectOne("SELECT * FROM flower_objects WHERE id =?", [$id] );
-
+    // $objects = DB::selectOne("SELECT * FROM flower_objects WHERE id =?", [$id] );
     // dd($request);
+    $objects = FlowerObject::query()
+        ->where("id",$id)
+        ->first();
+    
 
     return view('object', [
         "object" => $objects,

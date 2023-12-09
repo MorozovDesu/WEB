@@ -14,7 +14,9 @@
     
     <div class="container">
         <div>
-            <a href="/">Главная</a>
+            <a href="/" class="me-2">Главная</a>
+            <a href="/?type=кустовые" class="me-2">Кустовые</a>
+            <a href="/?type=одиночные" class="me-2">Одиночные</a>
         </div>
         @yield('content')
 
