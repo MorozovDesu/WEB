@@ -1,7 +1,7 @@
 @extends('__layout')
 
 @section('content')
-    <form action="{{ route("flower-objects.create")}}" method = "POST" enctype="multipart/form-data">
+    <form action="{{ route("flower-objects.store")}}" method = "POST" enctype="multipart/form-data">
         @csrf
         <input class="form-control mb-2" type="text"  name="title">
         <input class="form-control mb-2" type="text"  name="description">

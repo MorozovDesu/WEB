@@ -1,18 +1,29 @@
 @extends('__layout')
 
 @section('content')
-    <div class="row">
+    <div class="row d-flex">
         @foreach ($objects as $object)
-            <div class="col-4 p-2">
-                <div class="d-flex flex-column border p-2">
-                    <img src="{{ $object->imageUrl }}" alt="" sizes="max-width: 100%; height: 200px; object-fit: cover;">
-                    <a href="/flower-objects/{{ $object->id }}" class="btn btn-primary w-100 mt-3">
+            <div class="col-4 p-2" style="margin-bottom: 100px;">
+                <div class="position-relative border p-2" style="height: 300px; width: 100%;">
+                    <img src="{{ $object->imageUrl }}" alt=""
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                    <a href="{{ route('flower-objects.show', $object->id) }}" class="btn btn-primary w-100 mt-2">
                         {{ $object->title }}
                     </a>
-                    <div class="d-flex justify-content-between mt-3">
+                    @auth
+                    <div class="position-absolute top-0 end-0 mt-0 me-2">
+                        <a href="{{ route('flower-objects.edit', $object->id) }}" class="btn btn-success">Edit</a>
+                        <!-- Форма для кнопки удаления -->
+                        <form action="{{ route('flower-objects.destroy', $object->id) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    @endauth
+                    <div class="d-flex justify-content-between mt-1">
                         <button class="btn btn-primary">Картинка</button>
                         <button class="btn btn-primary">Описание</button>
-                        <a href="{{ route('flower-objects.edit', $object->id) }}" class="btn btn-success">Edit</a>
                     </div>
                 </div>
             </div>
