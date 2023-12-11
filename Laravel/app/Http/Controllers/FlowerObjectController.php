@@ -47,15 +47,32 @@ class FlowerObjectController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $object = new FlowerObject;
-        $object->title = $request->input("title");
-        $object->description = $request->input("description");
-        $object->image = $request->file("image")->store("/public/images");
-        $object->save();
+{
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'required|string',
+        'info' => 'required|string',
+        'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Проверка на тип и размер изображения
+    ]);
 
-        return redirect()->route("flower-objects.edit", ["flower_object" => $object->id]);
+    $object = new FlowerObject;
+    $object->title = $request->input("title");
+    $object->description = $request->input("description");
+    $object->info = $request->input("info");
+
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $imageName);
+        $object->image = 'images/' . $imageName;
     }
+
+    $object->save();
+
+    return redirect()->route("flower-objects.edit", ["flower_object" => $object->id])
+        ->with('success', 'Вы успешно добавили объект');
+}
+
 
     /**
      * Display the specified resource.
@@ -92,6 +109,7 @@ class FlowerObjectController extends Controller
         return view('object_edit', [
             "object" => $object,
             "title" => $object->title,
+            
 
         ]);
     }
@@ -107,6 +125,15 @@ class FlowerObjectController extends Controller
 
         $object->title = $request->input("title");
         $object->description = $request->input("description");
+        $object->info = $request->input("info");
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $object->image = 'images/' . $imageName;
+        }
+
         $object->save();
 
         return redirect()->route("flower-objects.edit", ["flower_object" => $object->id]);
