@@ -9,16 +9,18 @@ use Illuminate\Support\Facades\Storage;
 class FlowerObject extends Model
 {
     use HasFactory;
-    
-    protected $table = "flower_objects";// Можно было не праписовать тк, название бд создано по правилом его наименования
+
+    protected $table = "flower_objects"; // Можно было не праписовать тк, название бд создано по правилом его наименования
     public $timestamps = false;
 
-    public function getImageUrlAttribute(){
-        if(Storage::disk()->exists($this->image)){
+    public function getImageUrlAttribute()
+    {
+        if ($this->image && Storage::disk()->exists($this->image)) {
             $image = Storage::url($this->image);
-        }else{
-            $image =$this->image;
+        } else {
+            $image = $this->image;
         }
         return $image;
     }
+
 }

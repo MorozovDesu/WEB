@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
+
 </head>
 
 <body>
@@ -76,7 +77,8 @@
     .navbar a::before {
         content: '';
         position: absolute;
-        top: -2px; /* изменено свойство bottom на top */
+        top: -2px;
+        /* изменено свойство bottom на top */
         left: 0;
         width: 100%;
         height: 2px;
@@ -120,7 +122,8 @@
     .login-link::before {
         content: '';
         position: absolute;
-        top: -2px; /* изменено свойство bottom на top */
+        top: -2px;
+        /* изменено свойство bottom на top */
         left: 0;
         width: 100%;
         height: 2px;

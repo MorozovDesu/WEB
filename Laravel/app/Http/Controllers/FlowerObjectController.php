@@ -47,31 +47,34 @@ class FlowerObjectController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    $request->validate([
-        'title' => 'required|string|max:255',
-        'description' => 'required|string',
-        'info' => 'required|string',
-        'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Проверка на тип и размер изображения
-    ]);
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'info' => 'required|string',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Проверка на тип и размер изображения
+            'type' => 'required|string', // Добавлено поле для типа
+        ]);
 
-    $object = new FlowerObject;
-    $object->title = $request->input("title");
-    $object->description = $request->input("description");
-    $object->info = $request->input("info");
+        $object = new FlowerObject;
+        $object->title = $request->input("title");
+        $object->description = $request->input("description");
+        $object->info = $request->input("info");
+        $object->type = $request->input("type"); // Добавлено поле для типа
 
-    if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $imageName = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('images'), $imageName);
-        $object->image = 'images/' . $imageName;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+            $object->image = 'images/' . $imageName;
+        }
+
+        $object->save();
+
+        return redirect()->route("flower-objects.edit", ["flower_object" => $object->id])
+            ->with('success', 'Вы успешно добавили объект');
     }
 
-    $object->save();
-
-    return redirect()->route("flower-objects.edit", ["flower_object" => $object->id])
-        ->with('success', 'Вы успешно добавили объект');
-}
 
 
     /**
@@ -109,7 +112,7 @@ class FlowerObjectController extends Controller
         return view('object_edit', [
             "object" => $object,
             "title" => $object->title,
-            
+
 
         ]);
     }
@@ -126,6 +129,7 @@ class FlowerObjectController extends Controller
         $object->title = $request->input("title");
         $object->description = $request->input("description");
         $object->info = $request->input("info");
+        $object->type = $request->input("type"); // Добавляем обновление типа
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -139,6 +143,7 @@ class FlowerObjectController extends Controller
         return redirect()->route("flower-objects.edit", ["flower_object" => $object->id]);
     }
 
+
     /**
      * Remove the specified resource from storage.
      */
@@ -146,16 +151,20 @@ class FlowerObjectController extends Controller
     {
         $object = FlowerObject::find($id);
 
-    if (!$object) {
-        abort(404, 'Объект не найден');
+        if (!$object) {
+            abort(404, 'Объект не найден');
+        }
+
+        // Проверка, что у объекта есть изображение перед его удалением
+        if ($object->image) {
+            // Удаление изображения из хранилища
+            Storage::delete($object->image);
+        }
+
+        // Удаление объекта из базы данных
+        $object->delete();
+
+        return redirect()->route("flower-objects.index")->with('success', 'Объект успешно удален');
     }
 
-    // Удаление изображения из хранилища
-    Storage::delete($object->image);
-
-    // Удаление объекта из базы данных
-    $object->delete();
-
-    return redirect()->route("flower-objects.index")->with('success', 'Объект успешно удален');
-    }
 }
