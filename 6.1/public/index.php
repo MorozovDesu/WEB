@@ -25,6 +25,7 @@ $twig->addExtension(new \Twig\Extension\DebugExtension());
 $pdo = new PDO("mysql:host=localhost;dbname=outer_flower;charset=utf8", "root", "");
 
 $router = new Router($twig, $pdo);
+
 $router->add("/", MainController::class);
 $router->add("/flower-object/(?P<id>\d+)/image", ImageController::class);
 $router->add("/flower-object/(?P<id>\d+)/info", InfoController::class);
