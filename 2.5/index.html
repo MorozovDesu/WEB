@@ -32,20 +32,16 @@
         function onButtonClick(btn) {
             let name = document.getElementById("name"); // получили поле для ввода по id
             let colNum = document.getElementById("colNum");
-            let newRow = document.getElementById("newRow");
 
             let col = document.createElement("div");
-            
             // формирую фразу, тут используются апострофы ` а не кавычки
             // за счет этого вместо ${name.value} подставляется значение поля для ввода
             // в большинстве случаем это читабельнее, чем писать: "Я " + name.value
             col.innerText = `Я ${name.value}`;
             col.className = `col-${parseInt(colNum.value)} p-2 m-2 bg-warning`;  // добавил классы к новому элементу, колонку, внешние и внутренние отступы и желтый фон 
             // добавил передачу в кол, надо было переведить из строки в инт
-
             newRow.appendChild(col)
         }
-
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -58,5 +54,4 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>
-
 </html>
