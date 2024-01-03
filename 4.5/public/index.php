@@ -10,7 +10,6 @@
      // создаем собственно экземпляр Twig с помощью которого будет рендерить
      $twig = new \Twig\Environment($loader);
 
-
      $url = $_SERVER["REQUEST_URI"];
 
      // добавил две переменные
@@ -30,14 +29,11 @@
          $template = "daisies.twig";
          $image = "/images/daisies.jpg";
      }
-     
      // рендеринг делаем один раз по заполненным переменным
      echo $twig->render($template, [
          "title" => $title,
          "image" => $image,
      ]);
-
-
 
 
     //  исправить работу с картинками и добавить последний пункт со словариком
