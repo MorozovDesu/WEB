@@ -23,7 +23,6 @@ $menu = [
         "url" => "/daisies",
     ]
 ];
-
 if ($url == "/") {
     $title = "Главная";
     $template = "main.twig";
