@@ -55,7 +55,6 @@ if ($url == "/") {
     $controller = new DaisiesController($twig);       
 }
 
-// проверяем если controller не пустой, то рендерим страницу
 if ($controller) {
     $controller->get();
 }
