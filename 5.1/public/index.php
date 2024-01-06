@@ -63,7 +63,6 @@ if ($url == "/") {
 } elseif (preg_match("#^/daisies/info#", $url)) { 
     $controller = new DaisiesController($twig);       
 }
-
 // проверяем если controller не пустой, то рендерим страницу
 if ($controller) {
     $controller->setPDO($pdo); // а тут передаем PDO в контроллер
